@@ -1,0 +1,149 @@
+Usos de GIT
+-Tienes un Historial
+-Puedes almacenar código
+-Puedes trabajar en equipo
+-Nos permite ver errores de código
+  Podemos buscar en el historial de commits y reducir el rango de 
+  los errores y poder trabajar en los bugs.
+
+Conigurar GIT
+*git config --global
+  Con este comando indicamos a git que la configuración que vamos
+  a indicar, se aplique de manera global y no por proyecto.
+
+Cofiguracioes recomendadas
+--------------------------
+*git config --global user.name "Leonel Pucheta"
+ en este caso se usa comillas dobles por el espacio que puse en el nombre
+
+*git config --global user.email jamjizelol@gmail.com
+
+Si tienes VSCode lo indicamos ahora
+*git config --global core.editor "code --wait"
+ Cabe aclarar que yo uso nvim en ese caso remplaza: "code --wat" x "nvim"
+
+
+Con este comando podemos ver nuestro archivo de cofiguración global
+*git config --global -e
+
+Si estas usando windows usa: true
+Si estas usando linux/mac usa: input
+*git config --global core.autocrlf true/input
+
+Para ver más opciones para tu configuración usa
+*git config -h
+
+
+Comandos de GIT
+----------------
+*git init
+ Para inicializar un nuevo repositorio en el directorio actual
+
+
+*git status
+ Mostrar el estado actual de nuestro repositorio
+
+
+*git status -s
+ si ya conoces todo sobre tu repo, puedes usar -s para ver una información sin tanto relleno
+
+ M roja: Modificado
+ M verde: Modificado y en stage
+ A:No seguido por GIT  
+
+
+*git add <archivo> <archivo2> <...>
+ decirle a GIT que siga un archivo o agregar el mismo archivo con un cambio
+
+
+*git commit -m "mesaje con sentido"
+ comprometer (en: commit) el código, "commiteamos" los cambios de nuestro código, 
+ si es la primera vez que haces commit se hará comprometerá el archivo.
+ 
+ Es importante que el mensaje sea con sentido para que otros programadores vean en el 
+ historial lo que haz hecho.
+
+
+*git rm <archivo>
+ equivale a: rm <archivo> & git add <archivo>
+
+
+*git restore --staged <archivo>
+ Esto sirve para quitar un cambio de la etapa de stage 
+
+
+*git restore <archivo>
+ Sirve para descartar los cambios y recuperar un archivo que fué borrado (por ejemplo)
+ esto incluso en una etapa antes de hacer commit
+
+
+*git mv <archivo> <archivo_modif>
+ Equivale a: 
+ mv <archivo> <arhivo_modif>
+ git add <archivo> <archivo_modif>
+
+ Es importante agregar ambos, para que surta efecto o usar el comando ;).
+
+
+*git add .gitignore
+
+
+*git commit -m "agregando archivo gitignore"
+ Ignorar archivos para no subirlas al repo (archivos de config, credenciales, etc...)
+
+ +Creamos un archivo: .gitignore
+ en ese archivo espesificamos las rutas / archivos que queremos ignorar ej:
+  .env
+  node_modules/
+
+
+*git diff
+ Ver las modificaciones de una manera más visual
+
+
+*git diff --staged 
+ Para ver los cambios con diff pero de la version que se encuentra en la etapa de stage 
+
+
+*git log --oneline
+ Ver todo el historial del repositorio
+
+
+*git branch
+ Muestras las ramas del repositorio y muestra en cual estamos
+
+
+*git branch -d <rama>
+ Borra una rama OJO: No pide confirmación
+
+
+*git checkout -b <nombre_rama>
+ crear una rama para seguir haciendo commits sin afectar la rama prinipal
+
+
+*git checkout <nombre_rama>
+ para cambiar de rama
+
+
+*git merge <rama>
+ Traer los cambios de una rama a la rama actual
+
+
+*git remote add origin <URL>
+ sirve para indicar que vamos a tener un servidor remoto al cual subir los cambios
+ 
+ con add origin: indicamos de donde vamos a traer el código y a donde lo vamos a subir
+
+
+*git push -u origin <rama>
+ -u: creamos una rama en nuestro repo de GitHub
+
+ origin: le indicamos donde queremos que se cree la rama
+
+ <rama>: el nombre de la rama
+ 
+ Si quieres subir otra rama al repositorio, te posicionas en esa rama, y ejecutas el comado de arriba pero cambiando el nombre de la rama por la actual
+
+
+*git push
+ subir los cambios al servidor de GIT
